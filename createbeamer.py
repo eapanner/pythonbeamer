@@ -25,16 +25,14 @@ class Column(Environment):
 
 readfile = open(args.textfile, 'r')
 
-
-metadata = []
-
+#this dictionary will allow us to find the metadata associated with each image later
 metadataDict = {}
 
 #examples of categories that could be created based on sorted metadata
 trueImages = []
 falseImages = []
 
-
+#read through each line of the input text file
 while True:
     line = readfile.readline()
     metadata = []
@@ -50,7 +48,7 @@ while True:
     # each entry in the dictionary will save the metadata with the associated filepath.
     metadataDict[imagepath] = metadata
     
-
+    #this is an example of a possible category that could be present in the textfile
     if metadata[2] == "true":
         trueImages.append(imagepath)
     else:
@@ -72,7 +70,7 @@ for image in trueImages:
     
     with doc.create(Columns()):
         with doc.create(Column(arguments=Arguments((NoEscape(r".2\textwidth"))))):
-    #create a bulleted list of the metadata for each image
+            #create a bulleted list of the metadata for each image
             with doc.create(Enumerate(enumeration_symbol="*",
                                 options={})) as enum:
                 for data in metadataDict[image]:
