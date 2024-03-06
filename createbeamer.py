@@ -18,23 +18,9 @@ args = parser.parse_args()
 
 #define environments to use column and columns
 class Columns(Environment):
-    """
-    A class representing a custom LaTeX environment.
-
-    This class represents a custom LaTeX environment named
-    ``exampleEnvironment``.
-    """
-
     _latex_name = 'columns'
 
 class Column(Environment):
-    """
-    A class representing a custom LaTeX environment.
-
-    This class represents a custom LaTeX environment named
-    ``exampleEnvironment``.
-    """
-
     _latex_name = 'column'
 
 readfile = open(args.textfile, 'r')
